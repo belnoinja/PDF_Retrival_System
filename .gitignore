@@ -1,0 +1,13 @@
+# Node
+node_modules/
+.env
+.env.local
+*.log
+
+# Secrets
+config.json
+secrets.json
+
+# OS junk
+.DS_Store
+Thumbs.db
