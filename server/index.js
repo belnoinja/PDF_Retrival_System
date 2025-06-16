@@ -22,10 +22,13 @@ if (!fs.existsSync(uploadsDir)) {
 
 const queue = new Queue('file-upload-queue', {
   connection: {
-    host: process.env.REDIS_HOST || 'localhost',
-    port: parseInt(process.env.REDIS_PORT || '6379'),
-    password: process.env.REDIS_PASSWORD,
-  },
+  host: process.env.REDIS_HOST,
+  port: parseInt(process.env.REDIS_PORT || '6379'),
+   username: 'default',
+  password: process.env.REDIS_PASSWORD,
+  tls: {}  // Enables TLS for Upstash (rediss://)
+}
+
 });
 
 const storage = multer.diskStorage({
