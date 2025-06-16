@@ -43,6 +43,7 @@ const worker = new Worker(
 
       const vectorStore = await QdrantVectorStore.fromExistingCollection(embeddings, {
         url: process.env.QDRANT_URL || 'http://localhost:6333',
+        apiKey: process.env.QDRANT_API_KEY,
         collectionName: 'langchainjs-testing',
       });
 
@@ -58,6 +59,7 @@ const worker = new Worker(
     connection: {
       host: process.env.REDIS_HOST || 'localhost',
       port: parseInt(process.env.REDIS_PORT || '6379'),
+      password: process.env.REDIS_PASSWORD,
     },
   }
 );
